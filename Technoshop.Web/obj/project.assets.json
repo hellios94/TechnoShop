@@ -12377,11 +12377,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Web\\Technoshop.Web.csproj",
+      "projectUniqueName": "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Web\\Technoshop.Web.csproj",
       "projectName": "Technoshop.Web",
-      "projectPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Web\\Technoshop.Web.csproj",
+      "projectPath": "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Web\\Technoshop.Web.csproj",
       "packagesPath": "C:\\Users\\Pondy\\.nuget\\packages\\",
-      "outputPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Web\\obj\\",
+      "outputPath": "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12400,11 +12400,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Data\\Technoshop.Data.csproj": {
-              "projectPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Data\\Technoshop.Data.csproj"
+            "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Data\\Technoshop.Data.csproj": {
+              "projectPath": "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Data\\Technoshop.Data.csproj"
             },
-            "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Model\\Technoshop.Models.csproj": {
-              "projectPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Model\\Technoshop.Models.csproj"
+            "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Model\\Technoshop.Models.csproj": {
+              "projectPath": "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Model\\Technoshop.Models.csproj"
             }
           }
         }
