@@ -1,0 +1,9 @@
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\bin\Debug\netcoreapp2.1\Technoshop.Models.deps.json
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\bin\Debug\netcoreapp2.1\Technoshop.Models.dll
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\obj\Debug\netcoreapp2.1\Technoshop.Models.csproj.CoreCompileInputs.cache
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\obj\Debug\netcoreapp2.1\Technoshop.Models.AssemblyInfoInputs.cache
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\obj\Debug\netcoreapp2.1\Technoshop.Models.AssemblyInfo.cs
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\bin\Debug\netcoreapp2.1\Technoshop.Models.pdb
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\obj\Debug\netcoreapp2.1\Technoshop.Models.csprojAssemblyReference.cache
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\obj\Debug\netcoreapp2.1\Technoshop.Models.dll
+C:\Моите Проекти\Web Project\Technoshop\Technoshop.Model\obj\Debug\netcoreapp2.1\Technoshop.Models.pdb

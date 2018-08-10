@@ -1,0 +1,22 @@
+﻿@model UserDetailsViewModel
+
+<p>@Model.AvatarUrl</p>
+<p><strong>UserName:</strong> @Model.UserName</p>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>First Name:</strong> @Model.FirstName</p>
+<p><strong>Last Name:</strong> @Model.LastName</p>
+<p>
+    <strong>Roles:</strong>
+    <ul>
+        <li>Buyer</li>
+        @if(Model.Roles.Any())
+        {
+            @foreach (var role in Model.Roles)
+            {
+
+            <li>@role</li>
+
+            }
+         }
+    </ul>
+</p>

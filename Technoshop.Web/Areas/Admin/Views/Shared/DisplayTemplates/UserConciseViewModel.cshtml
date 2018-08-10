@@ -1,0 +1,29 @@
+﻿@model UserConciseViewModel
+
+
+
+<tr class="table-dark">
+    <th scope="row" class="text-center">@Model.UserName</th>
+    <td class="text-center">@Model.Email</td>
+    <td class="text-center">@Html.DisplayFor(model => model.IsAdmin)</td>
+    <td class="text-center">
+
+        <a asp-area="Admin" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"
+           class="btn btn-default">
+            Details
+        </a>
+        <a asp-area="Admin" asp-controller="User" asp-action="MakeAdmin" asp-route-id="@Model.Id"
+           class="btn btn-success">
+            Make Admin
+        </a>
+        <a asp-area="Admin" asp-controller="User" asp-action="ChangePassword" asp-route-id="@Model.Id"
+           class="btn btn-warning">
+            Change Password
+        </a>
+        <a asp-area="Admin" asp-controller="User" asp-action="Ban" asp-route-id="@Model.Id"
+           class="btn btn-danger">
+            Ban
+        </a>
+    </td>
+</tr>
+
