@@ -33,8 +33,26 @@ namespace Technoshop.Web.Areas.Admin.Controllers
             var users = this.dbContext.Users.
                 Where(u => u.Id != currentUser.Id).
                 ToList();
+
             var model = this.mapper.Map<IEnumerable<UserConciseViewModel>>(users);
+            foreach (var user in users)
+            {
+                var roles = await this.userManager.GetRolesAsync(user);
+                foreach(var mod in model)
+                {
+                    if (roles.Contains("Administrator") && user.Id == mod.Id)
+                    {
+                        mod.IsAdmin = true;
+                    }
+                    if (roles.Contains("Moderator") && user.Id == mod.Id)
+                    {
+                        mod.IsModerator = true;
+                    }
+                }
+
+            }
             return View(model);
+           
         }
 
         public async Task<IActionResult> Details(string id)
@@ -54,6 +72,16 @@ namespace Technoshop.Web.Areas.Admin.Controllers
             var model = this.mapper.Map<UserDetailsViewModel>(user);
             model.Roles = roles;
             return View(model);
+        }
+
+        public IActionResult MakeModerator(string id)
+        {
+            var user = this.dbContext.Users.Find(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+            return View();
         }
     }
 }

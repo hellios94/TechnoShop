@@ -12,17 +12,3 @@ C:\Моите Проекти\Web Project\Technoshop\Technoshop.Data\bin\Debug\ne
 C:\Моите Проекти\Web Project\Technoshop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.csproj.CopyComplete
 C:\Моите Проекти\Web Project\Technoshop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.dll
 C:\Моите Проекти\Web Project\Technoshop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.pdb
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\bin\Debug\netcoreapp2.1\Technoshop.Data.deps.json
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\bin\Debug\netcoreapp2.1\Technoshop.Data.runtimeconfig.json
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\bin\Debug\netcoreapp2.1\Technoshop.Data.runtimeconfig.dev.json
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\bin\Debug\netcoreapp2.1\Technoshop.Data.dll
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\bin\Debug\netcoreapp2.1\Technoshop.Data.pdb
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\bin\Debug\netcoreapp2.1\Technoshop.Models.dll
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\bin\Debug\netcoreapp2.1\Technoshop.Models.pdb
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.csprojAssemblyReference.cache
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.csproj.CoreCompileInputs.cache
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.AssemblyInfoInputs.cache
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.AssemblyInfo.cs
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.csproj.CopyComplete
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.dll
-C:\Моите Проекти\Technoshop\TechnoShop\Technoshop.Data\obj\Debug\netcoreapp2.1\Technoshop.Data.pdb

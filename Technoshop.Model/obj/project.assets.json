@@ -4019,11 +4019,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Model\\Technoshop.Models.csproj",
+      "projectUniqueName": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Model\\Technoshop.Models.csproj",
       "projectName": "Technoshop.Models",
-      "projectPath": "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Model\\Technoshop.Models.csproj",
+      "projectPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Model\\Technoshop.Models.csproj",
       "packagesPath": "C:\\Users\\Pondy\\.nuget\\packages\\",
-      "outputPath": "C:\\Моите Проекти\\Technoshop\\TechnoShop\\Technoshop.Model\\obj\\",
+      "outputPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

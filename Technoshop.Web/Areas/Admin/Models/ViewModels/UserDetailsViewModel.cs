@@ -16,7 +16,7 @@ namespace Technoshop.Web.Areas.Admin.Models.ViewModels
 
         public string LastName { get; set; }
 
-        public string AvatarUrl { get; set; }
+        public string AvatarUrl { get; set; } = "http://www.progarchives.com/forum/uploads/45302/robot.png";
 
         public IEnumerable<string> Roles { get; set; }
 

@@ -129,43 +129,21 @@ namespace Technoshop.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Technoshop.Models.Brand", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Brands");
-                });
-
             modelBuilder.Entity("Technoshop.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CategoryPicUrl");
+
                     b.Property<string>("Name");
+
+                    b.Property<string>("Slug");
 
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("Technoshop.Models.CategoryProduct", b =>
-                {
-                    b.Property<int>("ProductId");
-
-                    b.Property<int>("CategoryId");
-
-                    b.HasKey("ProductId", "CategoryId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("CategoryProducts");
                 });
 
             modelBuilder.Entity("Technoshop.Models.Order", b =>
@@ -191,7 +169,11 @@ namespace Technoshop.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BrandId");
+                    b.Property<string>("BackCamera");
+
+                    b.Property<string>("Battery");
+
+                    b.Property<string>("Brand");
 
                     b.Property<string>("CPUModel");
 
@@ -199,25 +181,39 @@ namespace Technoshop.Data.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("Model");
+                    b.Property<string>("Display");
+
+                    b.Property<string>("FrontCamera");
+
+                    b.Property<bool>("HDMI");
+
+                    b.Property<string>("ModelName");
+
+                    b.Property<string>("OS");
+
+                    b.Property<string>("Ports");
+
+                    b.Property<double>("Price");
 
                     b.Property<string>("ProductImageUrl");
 
-                    b.Property<int>("RAM");
+                    b.Property<string>("RAM");
 
-                    b.Property<string>("RAMType");
+                    b.Property<string>("Slug");
 
-                    b.Property<int>("Storage");
+                    b.Property<string>("Storage");
 
-                    b.Property<string>("StorageType");
+                    b.Property<string>("USB");
 
                     b.Property<int>("VideoCardMemory");
 
                     b.Property<string>("VideoCardModel");
 
+                    b.Property<double>("Weight");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("BrandId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -335,19 +331,6 @@ namespace Technoshop.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Technoshop.Models.CategoryProduct", b =>
-                {
-                    b.HasOne("Technoshop.Models.Category", "Category")
-                        .WithMany("Product")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Technoshop.Models.Product", "Product")
-                        .WithMany("Category")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("Technoshop.Models.Order", b =>
                 {
                     b.HasOne("Technoshop.Models.User", "User")
@@ -357,9 +340,9 @@ namespace Technoshop.Data.Migrations
 
             modelBuilder.Entity("Technoshop.Models.Product", b =>
                 {
-                    b.HasOne("Technoshop.Models.Brand", "Brand")
-                        .WithMany()
-                        .HasForeignKey("BrandId")
+                    b.HasOne("Technoshop.Models.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

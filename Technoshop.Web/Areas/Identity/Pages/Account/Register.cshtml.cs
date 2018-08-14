@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Technoshop.Models;
+using Technoshop.Web.Models;
 
 namespace Technoshop.Web.Areas.Identity.Pages.Account
 {

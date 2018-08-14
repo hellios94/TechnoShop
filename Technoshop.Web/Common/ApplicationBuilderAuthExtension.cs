@@ -17,7 +17,7 @@ namespace Technoshop.Web.Common
         private static readonly IdentityRole[] roles =
         {
             new IdentityRole("Administrator"),
-            new IdentityRole("User")
+            new IdentityRole("Moderator")
         };
 
         public static async void SeedDatabase(

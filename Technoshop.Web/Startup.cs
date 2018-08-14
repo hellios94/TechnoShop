@@ -73,10 +73,12 @@ namespace Technoshop.Web
                 };
 
                 options.SignIn.RequireConfirmedEmail = true;
+                options.User.RequireUniqueEmail = true;
 
                 options.Lockout.AllowedForNewUsers = true;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(20.00);
                 options.Lockout.MaxFailedAccessAttempts = 3;
+               
             });
 
             services.AddSingleton<IEmailSender, SendGridEmailSender>();

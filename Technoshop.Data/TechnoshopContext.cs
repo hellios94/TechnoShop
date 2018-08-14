@@ -16,13 +16,9 @@ namespace Technoshop.Data
 
         public DbSet<Category> Categories { get; set; }
 
-        public DbSet<Brand> Brands { get; set; }
-
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Order> Orders { get; set; }
-
-        public DbSet<CategoryProduct> CategoryProducts { get; set; }
 
         public DbSet<ProductOrder> ProductOrders { get; set; }
 
@@ -34,11 +30,15 @@ namespace Technoshop.Data
                 .WithOne(o => o.User)
                 .HasForeignKey(o => o.UserId);
 
+            builder.Entity<Category>()
+                .HasMany(c => c.Products)
+                .WithOne(p => p.Category)
+                .HasForeignKey(p => p.CategoryId);
+
+
             builder.Entity<ProductOrder>()
                 .HasKey(po => new { po.OrderId, po.ProductId });
 
-            builder.Entity<CategoryProduct>()
-                .HasKey(cp => new { cp.ProductId, cp.CategoryId });
 
             base.OnModelCreating(builder);
         }

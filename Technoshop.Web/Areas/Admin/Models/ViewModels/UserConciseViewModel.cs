@@ -14,5 +14,7 @@ namespace Technoshop.Web.Areas.Admin.Models.ViewModels
         public string UserName { get; set; }
 
         public bool IsAdmin { get; set; }
+
+        public bool IsModerator { get; set; }
     }
 }
