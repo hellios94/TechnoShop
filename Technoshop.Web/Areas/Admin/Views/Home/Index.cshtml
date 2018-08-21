@@ -1,9 +1,12 @@
-﻿
+﻿@model IEnumerable<HomeConciseViewModel>
 @{
     ViewData["Title"] = "Admin Index";
 }
 
-<h2>Admin Index</h2>
+<br />
+<h2 class="text-center">This is Our Products</h2>
+<br />
 
-<h1>It Works</h1>
-
+<table class="table container table-striped table-dark">
+    @Html.DisplayForModel()
+</table>

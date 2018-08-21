@@ -2,53 +2,58 @@
 
 
 
-<tr class="table-dark">
+<tr>
     <th scope="row" class="text-center">@Model.UserName</th>
     <td class="text-center">@Model.Email</td>
-    <td class="text-center">@Html.DisplayFor(model => model.IsModerator)</td>
     <td class="text-center">@Html.DisplayFor(model => model.IsAdmin)</td>
+    <td class="text-center">@Html.DisplayFor(model => model.IsModerator)</td>
+    <td class="text-center">@Html.DisplayFor(model => model.IsBanned)</td>
 
     <td class="text-center">
         @if (Model.IsAdmin == true)
         {
             <a asp-area="Admin" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"
-               class="btn btn-default">
+               class="btn btn-secondary fa fa-list">
                 Details
             </a>
-            @if (Model.IsModerator == true)
-            {
-                <a asp-area="Admin" asp-controller="User" asp-action="CancelModerator" asp-route-id="@Model.Id"
-                   class="btn btn-warning">
-                    Cancel Moderator
-                </a>
-            }
         }
         @if (Model.IsAdmin == false)
         {
-            <a asp-area="Admin" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"
-               class="btn btn-default">
-                Details
-            </a>
-            <a asp-area="Admin" asp-controller="User" asp-action="MakeModerator" asp-route-id="@Model.Id"
-               class="btn btn-success">
-                Make Moderator
-            </a>
-            <a asp-area="Admin" asp-controller="User" asp-action="ChangePassword" asp-route-id="@Model.Id"
-               class="btn btn-primary">
-                Change Password
-            </a>
-            <a asp-area="Admin" asp-controller="User" asp-action="Ban" asp-route-id="@Model.Id"
-               class="btn btn-danger">
-                Ban
-            </a>
-            @if (Model.IsModerator == true)
+            @if (Model.IsBanned == true)
             {
-                <a asp-area="Admin" asp-controller="User" asp-action="CancelModerator" asp-route-id="@Model.Id"
-                   class="btn btn-warning">
-                    Cancel Moderator
+                <a asp-area="Admin" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"
+                   class="btn btn-secondary fa fa-list">
+                    Details
                 </a>
+
             }
-        }
+            @if (Model.IsBanned == false)
+            {
+                <a asp-area="Admin" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"
+                class="btn btn-secondary fa fa-list">
+                    Details
+                </a>
+                <a asp-area="Admin" asp-controller="User" asp-action="Ban" asp-route-id="@Model.Id"
+                class="btn btn-danger fa fa-ban">
+                    Ban
+                </a>
+                @if (Model.IsModerator == true)
+                {
+                    <a asp-area="Admin" asp-controller="User" asp-action="CancelModerator" asp-route-id="@Model.Id"
+                    class="btn btn-warning fa fa-user-times">
+                     Cancel Moderator
+                    </a>
+                }
+
+                @if (Model.IsModerator == false)
+                {
+                    <a asp-area="Admin" asp-controller="User" asp-action="MakeModerator" asp-route-id="@Model.Id"
+                    class="btn btn-success fa fa-user-tie">
+                        Make Moderator
+                    </a>
+                }
+            }
+         }
 
     </td>
 </tr>

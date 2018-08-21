@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Technoshop.Models;
+using Technoshop.Web.Constants;
 
 namespace Technoshop.Web.Common
 {
@@ -13,11 +14,12 @@ namespace Technoshop.Web.Common
     {
 
         private const string DefaultAdminPassword = "Admin123!";
+        private const string DefaultModeratorPassword = "Moderator123!";
 
         private static readonly IdentityRole[] roles =
         {
-            new IdentityRole("Administrator"),
-            new IdentityRole("Moderator")
+            new IdentityRole(WebConstants.AdminRole),
+            new IdentityRole(WebConstants.ModeratorRole)
         };
 
         public static async void SeedDatabase(
@@ -50,6 +52,20 @@ namespace Technoshop.Web.Common
 
                     var result = await userManager.CreateAsync(user, DefaultAdminPassword);
                     result = await userManager.AddToRoleAsync(user, roles[0].Name);
+                }
+
+                var userModerator = await userManager.FindByNameAsync("moderator");
+                if (userModerator == null)
+                {
+                    userModerator = new User
+                    {
+                        UserName = "moderator",
+                        Email = "moderators@Technoshop.com",
+                        EmailConfirmed = true
+                    };
+
+                    var result = await userManager.CreateAsync(userModerator, DefaultModeratorPassword);
+                    result = await userManager.AddToRoleAsync(userModerator, roles[1].Name);
                 }
             }
         }

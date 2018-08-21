@@ -11,12 +11,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Technoshop.Data;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection; 
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Technoshop.Web.Areas.Identity.Services;
 using Technoshop.Models;
 using Technoshop.Web.Common;
 using AutoMapper;
+using Technoshop.Services.Admin.Interfaces;
+using Technoshop.Services.Admin;
+using Technoshop.Services.Moderator.Interfaces;
+using Technoshop.Services.Moderator;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Technoshop.Common.Resources;
+using Technoshop.Services.Interface.Buyer;
+using Technoshop.Services.Buyer;
 
 namespace Technoshop.Web
 {
@@ -32,6 +40,16 @@ namespace Technoshop.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCaching();
+            services.AddResponseCompression();
+
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.AddSupportedCultures("en", "bg");
+                options.AddSupportedUICultures("en", "bg");
+            });
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -87,7 +105,17 @@ namespace Technoshop.Web
 
             services.AddAutoMapper();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSignalR();
+
+            RegisterServiceLayer(services);
+
+            services.AddMvc()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization(options =>
+                {
+                    options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(ValidationResources));
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -108,12 +136,17 @@ namespace Technoshop.Web
                 app.UseHsts();
             }
 
+            app.UseRequestLocalization();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
 
-            app.SeedDatabase();
+            if(env.IsDevelopment())
+            {
+                app.SeedDatabase();
+            }
 
             app.UseMvc(routes =>
             {
@@ -125,6 +158,18 @@ namespace Technoshop.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private static void RegisterServiceLayer(IServiceCollection services)
+        {
+            services.AddScoped<IAdminCategoryService, AdminCategoryService>();
+            services.AddScoped<IAdminProductService, AdminProductService>();
+            services.AddScoped<IAdminHomeService, AdminHomeService>();
+
+            services.AddScoped<IModeratorCategoryService, ModeratorCategoryService>();
+            services.AddScoped<IModeratorProductsService, ModeratorProductsService>();
+
+            services.AddScoped<IBuyerCategoryService, BuierCategoryService>();
         }
     }
 }

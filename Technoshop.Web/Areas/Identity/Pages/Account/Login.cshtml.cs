@@ -10,17 +10,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Technoshop.Models;
+using Technoshop.Web.Constants;
 
 namespace Technoshop.Web.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
+        private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly ILogger<LoginModel> logger;
 
-        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(UserManager<User> userManager,
+            SignInManager<User> signInManager, ILogger<LoginModel> logger)
         {
+            this.userManager = userManager;
             this.signInManager = signInManager;
             this.logger = logger;
         }
@@ -71,13 +75,24 @@ namespace Technoshop.Web.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
-                    logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    var user = await this.userManager.FindByNameAsync(Input.UserName);
+                    var roles = await this.userManager.GetRolesAsync(user);
+                    if (roles.Contains(WebConstants.AdminRole))
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "Admin" });
+                    }
+                    else if (roles.Contains(WebConstants.ModeratorRole))
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "Moderator" });
+                    }
+                    else
+                    {
+                        logger.LogInformation("User logged in.");
+                        return LocalRedirect(returnUrl);
+                    }
                 }
                 if (result.RequiresTwoFactor)
                 {

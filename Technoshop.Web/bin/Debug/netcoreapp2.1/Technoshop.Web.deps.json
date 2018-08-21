@@ -29,8 +29,10 @@
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
           "Sendgrid": "9.9.0",
+          "Technoshop.Common": "1.0.0",
           "Technoshop.Data": "1.0.0",
-          "Technoshop.Models": "1.0.0"
+          "Technoshop.Models": "1.0.0",
+          "Technoshop.Services": "1.0.0"
         },
         "runtime": {
           "Technoshop.Web.dll": {}
@@ -562,6 +564,22 @@
         }
       },
       "System.ValueTuple/4.5.0": {},
+      "Technoshop.Common/1.0.0": {
+        "dependencies": {
+          "Technoshop.Models": "1.0.0"
+        },
+        "runtime": {
+          "Technoshop.Common.dll": {}
+        },
+        "resources": {
+          "bg/Technoshop.Common.resources.dll": {
+            "locale": "bg"
+          }
+        },
+        "compile": {
+          "Technoshop.Common.dll": {}
+        }
+      },
       "Technoshop.Data/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.1.1",
@@ -586,6 +604,19 @@
         },
         "compile": {
           "Technoshop.Models.dll": {}
+        }
+      },
+      "Technoshop.Services/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "7.0.1",
+          "Technoshop.Common": "1.0.0",
+          "Technoshop.Data": "1.0.0"
+        },
+        "runtime": {
+          "Technoshop.Services.dll": {}
+        },
+        "compile": {
+          "Technoshop.Services.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3734,12 +3765,22 @@
       "path": "system.valuetuple/4.5.0",
       "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
+    "Technoshop.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Technoshop.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "Technoshop.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Technoshop.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

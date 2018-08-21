@@ -4650,6 +4650,19 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Technoshop.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Technoshop.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Technoshop.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Technoshop.Common.dll": {}
+        }
+      },
       "Technoshop.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -4657,7 +4670,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.1.0",
           "Microsoft.EntityFrameworkCore": "2.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Tools": "2.1.0",
           "Technoshop.Models": "1.0.0"
         },
         "compile": {
@@ -4678,6 +4691,21 @@
         },
         "runtime": {
           "bin/placeholder/Technoshop.Models.dll": {}
+        }
+      },
+      "Technoshop.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "AutoMapper": "7.0.1",
+          "Technoshop.Common": "1.0.0",
+          "Technoshop.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Technoshop.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Technoshop.Services.dll": {}
         }
       }
     }
@@ -12348,6 +12376,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "Technoshop.Common/1.0.0": {
+      "type": "project",
+      "path": "../Technoshop.Common/Technoshop.Common.csproj",
+      "msbuildProject": "../Technoshop.Common/Technoshop.Common.csproj"
+    },
     "Technoshop.Data/1.0.0": {
       "type": "project",
       "path": "../Technoshop.Data/Technoshop.Data.csproj",
@@ -12357,6 +12390,11 @@
       "type": "project",
       "path": "../Technoshop.Model/Technoshop.Models.csproj",
       "msbuildProject": "../Technoshop.Model/Technoshop.Models.csproj"
+    },
+    "Technoshop.Services/1.0.0": {
+      "type": "project",
+      "path": "../Technoshop.Services/Technoshop.Services.csproj",
+      "msbuildProject": "../Technoshop.Services/Technoshop.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12366,8 +12404,10 @@
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1",
       "Sendgrid >= 9.9.0",
+      "Technoshop.Common >= 1.0.0",
       "Technoshop.Data >= 1.0.0",
-      "Technoshop.Models >= 1.0.0"
+      "Technoshop.Models >= 1.0.0",
+      "Technoshop.Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12400,11 +12440,17 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Common\\Technoshop.Common.csproj": {
+              "projectPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Common\\Technoshop.Common.csproj"
+            },
             "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Data\\Technoshop.Data.csproj": {
               "projectPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Data\\Technoshop.Data.csproj"
             },
             "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Model\\Technoshop.Models.csproj": {
               "projectPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Model\\Technoshop.Models.csproj"
+            },
+            "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Services\\Technoshop.Services.csproj": {
+              "projectPath": "C:\\Моите Проекти\\Web Project\\Technoshop\\Technoshop.Services\\Technoshop.Services.csproj"
             }
           }
         }
