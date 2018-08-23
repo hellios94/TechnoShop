@@ -1,0 +1,50 @@
+﻿@model OrderConciseViewModel
+@{
+    ViewData["Title"] = "Вашата количка";
+}
+
+<br />
+<h2 class="text-center">Това е вашата количка</h2>
+<br />
+<br />
+@if (Model == null)
+{
+
+<h2 class="text-center">Вашата количка е празна</h2>
+
+<a asp-area="" asp-controller="Home" asp-action="Index"
+   class="btn btn-warning text-right fa fa-arrow-left">
+    Назад
+</a>
+}
+@if (Model != null)
+{
+@if (Model.Products.Count() == 0)
+    {
+<h2 class=" text-center">Вашата количка е празна</h2>
+
+<a asp-area="" asp-controller="Home" asp-action="Index"
+   class="btn btn-warning text-right fa fa-arrow-left">
+    Назад
+</a>
+    }
+@if (Model.Products.Count() > 0)
+    {
+<h2>Your order is create on @Model.CreatedOn</h2>
+<table class="table container table-striped table-dark">
+    @Html.DisplayFor(m => m.Products)
+</table>
+<br />
+<h2 class="text-center">Общата цена е: @ViewData["AllAmount"].ToString() лева</h2>
+<br />
+<br />
+<a asp-area="" asp-controller="Orders" asp-action="FinalizeOrder"
+   class="btn btn-success text-right fas fa-hand-holding-usd">
+    Финализиране на поръчката
+</a>
+<a asp-area="" asp-controller="Home" asp-action="Index"
+   class="btn btn-warning text-right fa fa-arrow-left">
+    Назад
+</a>
+    }
+}

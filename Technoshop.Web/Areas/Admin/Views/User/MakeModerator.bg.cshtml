@@ -1,0 +1,20 @@
+﻿@model MakeUserModeratorViewModel
+@{
+    ViewData["Title"] = "Направи потребителят" + Model.UserName + "модератор" ;
+}
+
+<br />
+<h2 class="text-center">Направи @Model.UserName</h2>
+<br />
+<br />
+<p><h2 class="text-center">Сигурен ли си?</h2></p>
+<form asp-area="Admin" asp-controller="User" asp-action="MakeModerator" asp-route-id="@Model.Id" asp-route-role="Moderator" method="post" class="form-horizontal">
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-push-5">
+            <br />
+            <br />
+            <input type="submit" value="Направи модератор" class="btn btn-success fa fa-user-tie" />
+            <a asp-area="Admin" asp-controller="User" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Назад</a>
+        </div>
+    </div>
+</form>

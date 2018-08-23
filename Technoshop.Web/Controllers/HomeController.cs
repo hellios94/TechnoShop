@@ -3,32 +3,32 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Technoshop.Common.Buyer.ViewModels;
+using Technoshop.Data;
+using Technoshop.Services.Buyer.Interface;
 using Technoshop.Web.Models;
 
 namespace Technoshop.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IBuyerHomeService service;
+
+        public HomeController(IBuyerHomeService service)
         {
-            return View();
+            this.service = service;
         }
 
-        public IActionResult About()
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var products = await this.service.GetProductsAsync();
+            return View(products);
         }
 
         public IActionResult Privacy()

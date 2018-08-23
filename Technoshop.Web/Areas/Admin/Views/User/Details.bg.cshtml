@@ -1,0 +1,10 @@
+﻿@model UserDetailsViewModel
+@{
+    ViewData["Title"] = "Детайли за " + Model.UserName;
+}
+
+<br />
+<h2 class="text-center">Детайли за @Model.UserName</h2>
+<br />
+@Html.DisplayForModel()
+

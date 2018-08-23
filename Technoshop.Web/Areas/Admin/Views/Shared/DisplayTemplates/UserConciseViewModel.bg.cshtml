@@ -1,0 +1,60 @@
+﻿@model UserConciseViewModel
+
+
+
+<tr>
+    <th scope="row" class="text-center">@Model.UserName</th>
+    <td class="text-center">@Model.Email</td>
+    <td class="text-center">@Html.DisplayFor(model => model.IsAdmin)</td>
+    <td class="text-center">@Html.DisplayFor(model => model.IsModerator)</td>
+    <td class="text-center">@Html.DisplayFor(model => model.IsBanned)</td>
+
+    <td class="text-center">
+        @if (Model.IsAdmin == true)
+        {
+            <a asp-area="Admin" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"
+               class="btn btn-secondary fa fa-list">
+                Детайли
+            </a>
+        }
+        @if (Model.IsAdmin == false)
+        {
+            @if (Model.IsBanned == true)
+            {
+                <a asp-area="Admin" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"
+                   class="btn btn-secondary fa fa-list">
+                    Детайли
+                </a>
+
+            }
+            @if (Model.IsBanned == false)
+            {
+                <a asp-area="Admin" asp-controller="User" asp-action="Details" asp-route-id="@Model.Id"
+                class="btn btn-secondary fa fa-list">
+                    Детайли
+                </a>
+                <a asp-area="Admin" asp-controller="User" asp-action="Ban" asp-route-id="@Model.Id"
+                class="btn btn-danger fa fa-ban">
+                    Бан
+                </a> <br />
+                @if (Model.IsModerator == true)
+                {
+                    <a asp-area="Admin" asp-controller="User" asp-action="CancelModerator" asp-route-id="@Model.Id"
+                    class="btn btn-warning fa fa-user-times">
+                     Отмени Модератор
+                    </a>
+                }
+
+                @if (Model.IsModerator == false)
+                {
+                    <a asp-area="Admin" asp-controller="User" asp-action="MakeModerator" asp-route-id="@Model.Id"
+                    class="btn btn-success fa fa-user-tie">
+                        Направи Модератор
+                    </a>
+                }
+            }
+         }
+
+    </td>
+</tr>
+

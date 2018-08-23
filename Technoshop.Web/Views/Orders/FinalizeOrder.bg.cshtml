@@ -1,0 +1,80 @@
+﻿@model OrderAddressCreationBindingModel
+@{
+    ViewData["Title"] = "Finalize Order";
+}
+
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<OrderAddressCreationBindingModel> localizer
+
+<br />
+<h2 class="text-center">Финализиране на поръчката</h2>
+<br />
+
+<form asp-area="" asp-controller="Orders" asp-action="FinalizeOrder" method="post" class="form-horizontal">
+    <div class="form-group row">
+        <label asp-for="FirstName" class="col-form-label col-sm-2 font-weight-bold">Собствено име</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="text" asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="LastName" class="col-form-label col-sm-2 font-weight-bold">Фамилия</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="text" asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="PhoneNumber" class="col-form-label col-sm-2 font-weight-bold">Телефонен номер</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="tel" asp-for="PhoneNumber" pattern="[0-9]{10}" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Email" class="col-form-label col-sm-2 font-weight-bold">Имейл</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="email" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Country" class="col-form-label col-sm-2 font-weight-bold">Страна</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="text" asp-for="Country" class="form-control" />
+            <span asp-validation-for="Country" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="City" class="col-form-label col-sm-2 font-weight-bold">Град</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="text" asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Address" class="col-form-label col-sm-2 font-weight-bold">Адрес</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="text" asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="PostalCode" class="col-form-label col-sm-2 font-weight-bold">Пощенски код</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="number" asp-for="PostalCode" class="form-control" />
+            <span asp-validation-for="PostalCode" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="submit" value="Поръчай" class="btn btn-success fa fa-shopping-basket" />
+            <a asp-area="" asp-controller="Orders" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Назад</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

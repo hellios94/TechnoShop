@@ -1,0 +1,22 @@
+﻿@model UserDetailsViewModel
+
+<p><img src="@Model.AvatarUrl" height="200" width="200" /></p>
+<p><strong>Потребителско име:</strong> @Model.UserName</p>
+<p><strong>Емейл:</strong> <a href="mailto://@Model.Email"></a>@Model.Email</p>
+<p><strong>Собствено име:</strong> @Model.FirstName</p>
+<p><strong>Фамилия:</strong> @Model.LastName</p>
+<p>
+    <strong>Роли:</strong>
+    <ul>
+        <li>Купувач</li>
+        @if(Model.Roles.Any())
+        {
+            @foreach (var role in Model.Roles)
+            {
+
+            <li>@role</li>
+
+            }
+         }
+    </ul>
+</p>

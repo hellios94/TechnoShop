@@ -1,0 +1,17 @@
+﻿@model CategoryConciseViewModel
+
+
+<tr>
+    <th scope="row">
+        <img src="@Model.CategoryPicUrl" height="100" width="100"/>
+    </th>
+    <td class="text-center align-middle">
+        @Model.Name
+    </td>
+    <td class="text-right align-middle">
+        <a asp-area="" asp-controller="Categories" asp-action="Details" asp-route-id="@Model.Id" asp-route-slug="@Model.Slug"
+           class="btn btn-info fa fa-bars">
+            Детайли
+        </a>
+    </td>
+</tr>

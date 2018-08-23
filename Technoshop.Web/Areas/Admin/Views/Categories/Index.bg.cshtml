@@ -1,0 +1,18 @@
+﻿@model IEnumerable<CategoryConciseViewModel>
+@{
+    ViewData["Title"] = "Всички Категории";
+}
+
+<br />
+<h2 class="text-center">Всички категории</h2>
+<br />
+<a asp-area="Admin" asp-controller="Categories" asp-action="Create" class="btn btn-success">
+    <i class="fa fa-plus"></i>
+    Създай нова категория
+</a>
+<br />
+<br />
+<table class="table container table-striped table-hover table-dark table-bordered">
+    @Html.DisplayForModel()
+</table>
+

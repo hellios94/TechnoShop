@@ -1,0 +1,19 @@
+﻿@model CancelModeratorViewModel
+@{
+    ViewData["Title"] = "Отмяна на модератор " + Model.UserName;
+}
+<br />
+<h2 class="text-center">Отмяна на модератор @Model.UserName</h2>
+<br />
+<br />
+<p><h2 class="text-center">Сигурен ли сте?</h2></p>
+<form asp-area="Admin" asp-controller="User" asp-action="CancelModerator" asp-route-id="@Model.Id" asp-route-role="Moderator" method="post" class="form-horizontal">
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-push-5">
+            <br />
+            <br />
+            <input type="submit" value="Премахване на роля" class="btn btn-danger fa fa-user-times" />
+            <a asp-area="Admin" asp-controller="User" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Назад</a>
+        </div>
+    </div>
+</form>

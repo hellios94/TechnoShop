@@ -1,0 +1,27 @@
+﻿@model ProductEditBindingModel
+@{
+    ViewData["Title"] = "Edit " + Model.ModelName;
+}
+
+
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ProductEditBindingModel> localizer
+
+<br />
+<h2 class="text-center">Edit @Model.ModelName</h2>
+<br />
+
+<form asp-area="Moderator" asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" asp-route-slug="@Model.Slug" method="post">
+    @Html.EditorForModel()
+    <div class="form-group row">
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="submit" value="Edit" class="btn btn-success fa fa-edit" />
+            <a asp-area="Moderator" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Cancel</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

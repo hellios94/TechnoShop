@@ -1,0 +1,12 @@
+﻿@model IEnumerable<HomeConciseViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<h2 class="text-center">Това са нашите продукти</h2>
+<br />
+
+<table class="table container table-striped table-dark">
+    @Html.DisplayForModel()
+</table>

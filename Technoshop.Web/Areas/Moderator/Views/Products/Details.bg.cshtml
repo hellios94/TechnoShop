@@ -1,0 +1,598 @@
+﻿@model ProductDetailsViewModel
+@{
+    ViewData["Title"] = "Детайли за " + Model.ModelName;
+}
+
+@{
+    var category = ViewData["Category"] as string;
+    var categorySlug = ViewData["CategorySlug"] as string;
+}
+
+<br />
+<h2 class="text-center">Детайли за @Model.ModelName</h2>
+<br />
+<div class="row">
+    <div class="col-4 mx-auto text-center">
+        <img src="@Model.ProductImageUrl" width="200" height="200" />
+    </div>
+</div>
+<p class="text-center"><h2 class="text-center">@Model.Price лева</h2></p>
+
+@if (Model.CategoryId == 1)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="col-sm-6 col-lg-5 align-middle">
+                Марка
+            </td>
+            <td class="col-sm-6 col-lg-5 align-middle">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Модел
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Категория
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5 text-primary font-weight-bold">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Дисплей
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Display
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-6 col-lg-5 align-middle">
+                Описание
+            </td>
+            <td class="col-sm-6 col-lg-5 align-middle">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Процесор
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.CPUModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Оперативна памет
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.RAM
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Вътрешна памет
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Storage
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Модел на видео карта
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.VideoCardModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Оперативна памет на видео карта
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.VideoCardMemory гб
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                батерия
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Battery
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Уеб Камера
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.FrontCamera
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                USB портове
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.USB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI портове
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-square badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Други портове
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Операционна система
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.OS
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Тегло
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Weight кг
+            </td>
+        </tr>
+    </table>
+}
+@if (Model.CategoryId == 2 || Model.CategoryId == 3)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="col-sm-6 col-lg-5 align-content-center">
+                Марка
+            </td>
+            <td class="col-sm-6 col-lg-5 align-content-center">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-6 col-lg-5 align-content-center">
+                Модел
+            </td>
+            <td class="col-sm-6 col-lg-5 align-content-center">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Категория
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Дисплей
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Display
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Описание
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Процесор
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.CPUModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Оперативна памет
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.RAM
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Вътрешна памет
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Storage
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Батерия
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Battery
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Предна камера
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.FrontCamera
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Задна камера
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.BackCamera
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI портове
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-circle badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Други портове
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Операционна система
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.OS
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Тегло
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Weight кг
+            </td>
+        </tr>
+    </table>
+}
+
+@if (Model.CategoryId == 5)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Марка
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Модел
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Категория
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Описание
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Процесор
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.CPUModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Оперативна памет
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.RAM
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Вътрешна памет
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Storage
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Модел на видео карта
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.VideoCardModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Оперативна памет на видео карта
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.VideoCardMemory гб
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                USB
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.USB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI портове
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-circle badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Други портове
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Операционна система
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.OS
+            </td>
+        </tr>
+    </table>
+}
+@if (Model.CategoryId == 6 || Model.CategoryId == 1002)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Марка
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Модел
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Категория
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Описание
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Дисплей
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Display
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                USB портове
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.USB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI портове
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-circle badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Други портове
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+    </table>
+}
+@if (Model.CategoryId == 8)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Марка
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Модел
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Категория
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Описание
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Дисплей
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Display
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                USB портове
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.USB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Операционна система
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.OS
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI портове
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-circle badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Други портове
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+    </table>
+}
+<a asp-area="Moderator" asp-controller="Products" asp-action="RemoveProduct" asp-route-id="@Model.Id" asp-route-slug="@Model.Slug" class="btn btn-danger fa fa-trash-alt">
+    Изтрии
+</a>
+<a asp-area="Moderator" asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" asp-route-slug="@Model.Slug" class="btn btn-info fa fa-edit">
+    Редактирай
+</a>
+<a asp-area="Moderator" asp-controller="Categories" asp-action="Details" asp-route-id="@Model.CategoryId" asp-route-slug="@categorySlug"
+   class="btn btn-warning fa fa-arrow-left">
+    Отказ
+</a>
+

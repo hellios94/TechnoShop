@@ -6080,6 +6080,10 @@ button.close {
   vertical-align: text-top !important;
 }
 
+.bg-steelBlue {
+    background-color: #4682B4 !important;
+}
+
 .bg-primary {
   background-color: #007bff !important;
 }

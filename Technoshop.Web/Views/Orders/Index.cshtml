@@ -1,0 +1,50 @@
+﻿@model OrderConciseViewModel
+@{
+    ViewData["Title"] = "Your shopping cart";
+}
+
+<br />
+<h2 class="text-center">This is your Shopping Cart</h2>
+<br />
+<br />
+@if (Model == null)
+{
+
+    <h2 class="text-center">Your Shopping Cart is empty</h2>
+
+    <a asp-area="" asp-controller="Home" asp-action="Index"
+       class="btn btn-warning text-right fa fa-arrow-left">
+        Cancel
+    </a>
+}
+@if (Model != null)
+{
+    @if (Model.Products.Count() == 0)
+    {
+        <h2 class=" text-center">Your Shopping Cart is empty</h2>
+
+        <a asp-area="" asp-controller="Home" asp-action="Index"
+           class="btn btn-warning text-right fa fa-arrow-left">
+            Cancel
+        </a>
+    }
+    @if (Model.Products.Count() > 0)
+    {
+        <h2>Your order is create on @Model.CreatedOn</h2>
+        <table class="table container table-striped table-dark">
+            @Html.DisplayFor(m => m.Products)
+        </table>
+        <br />
+        <h2 class="text-center">Price for All: @ViewData["AllAmount"].ToString() lv.</h2>
+        <br />
+        <br />
+        <a asp-area="" asp-controller="Orders" asp-action="FinalizeOrder"
+           class="btn btn-success text-right fas fa-hand-holding-usd">
+            Finalize Order
+        </a>
+        <a asp-area="" asp-controller="Home" asp-action="Index"
+           class="btn btn-warning text-right fa fa-arrow-left">
+            Cancel
+        </a>
+    }
+}

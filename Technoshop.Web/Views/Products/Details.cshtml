@@ -1,0 +1,597 @@
+﻿@model ProductDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details for " + Model.ModelName;
+}
+
+@{
+    var category = ViewData["Category"] as string;
+    var categorySlug = ViewData["CategorySlug"] as string;
+}
+
+
+<br />
+<h2 class="text-center">Details for @Model.ModelName</h2>
+<br />
+<div class="row">
+    <div class="col-4 mx-auto text-center">
+        <img src="@Model.ProductImageUrl" width="200" height="200" />
+    </div>
+</div>
+<p class="text-center"><h2 class="text-center">@Model.Price лева</h2></p>
+
+@if (Model.CategoryId == 1)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="col-sm-6 col-lg-5 align-middle">
+                Brand
+            </td>
+            <td class="col-sm-6 col-lg-5 align-middle">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Model
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Category
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5 text-primary font-weight-bold">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Display
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Display
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-6 col-lg-5 align-middle">
+                Description
+            </td>
+            <td class="col-sm-6 col-lg-5 align-middle">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                CPU
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.CPUModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                RAM
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.RAM
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Storage
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Storage
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Video Card Model
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.VideoCardModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Video Card Memory
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.VideoCardMemory GB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Battery
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Battery
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Web Camera
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.FrontCamera
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                USB
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.USB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-square badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Ports
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Operating System
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.OS
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Weight
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Weight Kg
+            </td>
+        </tr>
+    </table>
+}
+@if (Model.CategoryId == 2 || Model.CategoryId == 3)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="col-sm-6 col-lg-5 align-content-center">
+                Brand
+            </td>
+            <td class="col-sm-6 col-lg-5 align-content-center">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-6 col-lg-5 align-content-center">
+                Model
+            </td>
+            <td class="col-sm-6 col-lg-5 align-content-center">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Category
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Display
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Display
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Description
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                CPU
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.CPUModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                RAM
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.RAM
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Storage
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Storage
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Battery
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Battery
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                First Camera
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.FrontCamera
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Second Camera
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.BackCamera
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-circle badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Ports
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Operating System
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.OS
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Weight
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Weight Kg
+            </td>
+        </tr>
+    </table>
+}
+
+@if (Model.CategoryId == 5)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Brand
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Model
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Category
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Description
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                CPU
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.CPUModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                RAM
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.RAM
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Storage
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Storage
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Video Card Model
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.VideoCardModel
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Video Card Memory
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.VideoCardMemory GB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                USB
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.USB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-circle badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Ports
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Operating System
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.OS
+            </td>
+        </tr>
+    </table>
+}
+@if (Model.CategoryId == 6 || Model.CategoryId == 1002)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Brand
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Model
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Category
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Description
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Display
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Display
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                USB
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.USB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-circle badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Ports
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+    </table>
+}
+@if (Model.CategoryId == 8)
+{
+    <table class="container table table-striped table-dark">
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Brand
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Brand
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Model
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.ModelName
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Category
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @category
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Description
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Description
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Display
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Display
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                USB
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.USB
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Operating System
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.OS
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                HDMI
+            </td>
+            @if (Model.HDMI == true)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-check-circle badge-success"></span>
+                </td>
+            }
+            @if (Model.HDMI == false)
+            {
+                <td class="align-middle col-sm-6 col-lg-5">
+                    <span class="fa fa-times-circle badge-danger"></span>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td class="align-middle col-sm-6 col-lg-5">
+                Ports
+            </td>
+            <td class="align-middle col-sm-6 col-lg-5">
+                @Model.Ports
+            </td>
+        </tr>
+    </table>
+}
+<form asp-controller="Orders" asp-action="AddProduct" asp-route-id="@Model.Id" method="post">
+    <input type="submit" value="Order" class="btn btn-success fas fa-shopping-basket" />
+    <a asp-area="" asp-controller="Categories" asp-action="Details" asp-route-id="@Model.CategoryId" asp-route-slug="@categorySlug"
+       class="btn btn-warning fa fa-arrow-left">
+        Cancel
+    </a>
+</form>
+

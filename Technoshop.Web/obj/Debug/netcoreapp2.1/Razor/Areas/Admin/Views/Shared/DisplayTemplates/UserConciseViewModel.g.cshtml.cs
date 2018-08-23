@@ -147,7 +147,7 @@ using Technoshop.Web.Helpers;
             WriteLiteral("            ");
             EndContext();
             BeginContext(472, 184, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c167c77fb294323b4122643d020d749", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2152ed2da3f44c9e80aa330d1ed6bb9e", async() => {
                 BeginContext(613, 39, true);
                 WriteLiteral("\r\n                Details\r\n            ");
                 EndContext();
@@ -211,7 +211,7 @@ using Technoshop.Web.Helpers;
             WriteLiteral("                ");
             EndContext();
             BeginContext(791, 196, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf5febfa4edd4ad4af5c043169a24fb5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6f92bd1abb847368d05cf1a235f1e5c", async() => {
                 BeginContext(936, 47, true);
                 WriteLiteral("\r\n                    Details\r\n                ");
                 EndContext();
@@ -266,7 +266,7 @@ using Technoshop.Web.Helpers;
             WriteLiteral("                ");
             EndContext();
             BeginContext(1080, 193, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db39df45edba4bc1bfdfae3c3f1e568a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4cb797802d840e485ca980436a5e895", async() => {
                 BeginContext(1222, 47, true);
                 WriteLiteral("\r\n                    Details\r\n                ");
                 EndContext();
@@ -306,7 +306,7 @@ using Technoshop.Web.Helpers;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(1291, 181, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c5427141e94473cab613f45a7b3796c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c402a9a94cb04e39895fab69b375d9a7", async() => {
                 BeginContext(1425, 43, true);
                 WriteLiteral("\r\n                    Ban\r\n                ");
                 EndContext();
@@ -355,7 +355,7 @@ using Technoshop.Web.Helpers;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(1562, 223, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c43e9995d6c4831a60c1bb3edb0905a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7df3329ef8041deb3004781c02ec66f", async() => {
                 BeginContext(1720, 61, true);
                 WriteLiteral("\r\n                     Cancel Moderator\r\n                    ");
                 EndContext();
@@ -409,7 +409,7 @@ using Technoshop.Web.Helpers;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(1897, 220, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "41356221251d4e28b8fb03f1e66f8424", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47dd11b88e6f4aeeb14a198fe0d0b810", async() => {
                 BeginContext(2051, 62, true);
                 WriteLiteral("\r\n                        Make Moderator\r\n                    ");
                 EndContext();

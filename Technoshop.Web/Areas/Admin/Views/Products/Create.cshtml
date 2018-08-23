@@ -1,0 +1,267 @@
+﻿@model ProductCreationBindingModel
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ProductCreationBindingModel> localizer
+
+@{
+    var category = ViewData["Category"] as string;
+}
+<br />
+<h2 class="text-center">Add product for category @category</h2>
+<br />
+
+
+@if (Model.CategoryId == 1)
+{
+    <form asp-area="Admin" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        @Html.FormGroupFor(model => model.ModelName)
+        @Html.FormGroupFor(model => model.Slug)
+        @Html.FormGroupFor(model => model.Brand)
+        <div class="form-group row">
+            <label asp-for="CategoryId" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CategoryId" value="@category" readonly class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.Display)
+        @Html.FormGroupFor(model => model.RAM)
+        @Html.FormGroupFor(model => model.Storage)
+        @Html.FormGroupFor(model => model.CPUModel)
+        @Html.FormGroupFor(model => model.VideoCardModel)
+        <div class="form-group row">
+            <label asp-for="VideoCardMemory" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="VideoCardMemory" class="form-control" />
+                <span asp-validation-for="VideoCardMemory" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.Battery)
+        @Html.FormGroupFor(model => model.FrontCamera)
+        @Html.FormGroupFor(model => model.USB)
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="radio" asp-for="HDMI" value="true" class="form-check-input" /> Yes <br />
+                <input type="radio" asp-for="HDMI" value="false" class="form-check-input" /> No
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.Ports)
+        @Html.FormGroupFor(model => model.OS)
+        <div class="form-group row">
+            <label asp-for="Weight" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.ProductImageUrl)
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Create" class="btn btn-success fa fa-plus" />
+                <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Cancel</a>
+            </div>
+        </div>
+    </form>
+}
+@if (Model.CategoryId == 2 || Model.CategoryId == 3)
+{
+    <form asp-area="Admin" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        @Html.FormGroupFor(model => model.ModelName)
+        @Html.FormGroupFor(model => model.Slug)
+        @Html.FormGroupFor(model => model.Brand)
+        @Html.FormGroupFor(model => model.Description)
+        @Html.FormGroupFor(model => model.Display)
+        @Html.FormGroupFor(model => model.RAM)
+        @Html.FormGroupFor(model => model.Storage)
+        @Html.FormGroupFor(model => model.CPUModel)
+        @Html.FormGroupFor(model => model.Battery)
+        @Html.FormGroupFor(model => model.FrontCamera)
+        @Html.FormGroupFor(model => model.BackCamera)
+        <div class="form-group row">
+            <label asp-for="HDMI" class="control-label col-sm-2"></label>
+            <div class="col-sm-10 ">
+                <input type="radio" asp-for="HDMI" value="true" class="radio-inline" /> Yes
+                <input type="radio" asp-for="HDMI" value="false" class="radio-inline" /> No
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.Ports)
+        @Html.FormGroupFor(model => model.OS)
+        <div class="form-group row">
+            <label asp-for="Weight" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.ProductImageUrl)
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Create" class="btn btn-success fa fa-plus" />
+                <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Cancel</a>
+            </div>
+        </div>
+    </form>
+
+}
+@if (Model.CategoryId == 5)
+{
+    <form asp-area="Admin" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        @Html.FormGroupFor(model => model.ModelName)
+        @Html.FormGroupFor(model => model.Slug)
+        @Html.FormGroupFor(model => model.Brand)
+        @Html.FormGroupFor(model => model.Description)
+        @Html.FormGroupFor(model => model.RAM)
+        @Html.FormGroupFor(model => model.Storage)
+        @Html.FormGroupFor(model => model.CPUModel)
+        @Html.FormGroupFor(model => model.VideoCardModel)
+        <div class="form-group row">
+            <label asp-for="VideoCardMemory" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="VideoCardMemory" class="form-control" />
+                <span asp-validation-for="VideoCardMemory" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.USB)
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 ">
+                <input type="radio" asp-for="HDMI" value="true" class="radio-inline" /> Yes
+                <input type="radio" asp-for="HDMI" value="false" class="radio-inline" /> No
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.Ports)
+        @Html.FormGroupFor(model => model.OS)
+        @Html.FormGroupFor(model => model.ProductImageUrl)
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Create" class="btn btn-success fa fa-plus" />
+                <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Cancel</a>
+            </div>
+        </div>
+    </form>
+}
+@if (Model.CategoryId == 6 || Model.CategoryId == 7)
+{
+    <form asp-area="Admin" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+        @Html.FormGroupFor(model => model.ModelName)
+        @Html.FormGroupFor(model => model.Slug)
+        @Html.FormGroupFor(model => model.Brand)
+        @Html.FormGroupFor(model => model.Description)
+        @Html.FormGroupFor(model => model.Display)
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 ">
+                <input type="radio" asp-for="HDMI" value="true" class="radio-inline" /> Yes
+                <input type="radio" asp-for="HDMI" value="false" class="radio-inline" /> No
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.USB)
+        @Html.FormGroupFor(model => model.Ports)
+        @Html.FormGroupFor(model => model.ProductImageUrl)
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Create" class="btn btn-success fa fa-plus" />
+                <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Cancel</a>
+            </div>
+        </div>
+    </form>
+}
+@if (Model.CategoryId == 8)
+{
+    <form asp-area="Admin" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+        @Html.FormGroupFor(model => model.ModelName)
+        @Html.FormGroupFor(model => model.Slug)
+        @Html.FormGroupFor(model => model.Brand)
+        @Html.FormGroupFor(model => model.Description)
+        @Html.FormGroupFor(model => model.Display)
+        @Html.FormGroupFor(model => model.OS)
+
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 ">
+                <input type="radio" asp-for="HDMI" value="true" class="radio-inline" /> Yes
+                <input type="radio" asp-for="HDMI" value="false" class="radio-inline" /> No
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        @Html.FormGroupFor(model => model.USB)
+        @Html.FormGroupFor(model => model.Ports)
+        @Html.FormGroupFor(model => model.ProductImageUrl)
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold"></label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Create" class="btn btn-success fa fa-plus" />
+                <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Cancel</a>
+            </div>
+        </div>
+    </form>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/create-slug.js"></script>
+    <script>
+        $(function () {
+            createSlug("@(Html.IdFor(model => model.ModelName))", "@(Html.IdFor(model => model.Slug))");
+         });
+    </script>
+}

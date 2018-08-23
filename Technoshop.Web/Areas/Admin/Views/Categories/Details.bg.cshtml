@@ -1,0 +1,43 @@
+﻿@model CategoryDetailsViewModel
+
+
+<br />
+<h2 class="text-center">@Model.Name</h2>
+<br />
+
+@if (!Model.Products.Any())
+{
+    <div>
+        Все още няма продукти.
+        <br />
+        <br />
+        <a asp-area="Admin"
+           asp-controller="Products"
+           asp-action="Create"
+           asp-route-id="@Model.Id"
+           class="btn btn-success">
+            <i class="fa fa-plus"></i>
+            Добави първият продукт
+        </a>
+    </div>
+}
+@if (Model.Products.Any())
+{
+
+    <a asp-area="Admin" asp-controller="Products" asp-action="Create" asp-route-id="@Model.Id"
+       class="btn btn-success">
+        <i class="fa fa-plus"></i>
+        Добави продукт
+    </a>
+    <br />
+    <br />
+    <table class="table container table-striped table-dark">
+        @Html.DisplayFor(m => m.Products)
+    </table>
+}
+<br />
+<br />
+    <a asp-area="Admin" asp-controller="Categories" asp-action="Index"
+       class="btn btn-warning text-right fa fa-arrow-left">
+        Назад
+    </a>

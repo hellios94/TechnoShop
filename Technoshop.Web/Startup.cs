@@ -23,8 +23,8 @@ using Technoshop.Services.Moderator.Interfaces;
 using Technoshop.Services.Moderator;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Technoshop.Common.Resources;
-using Technoshop.Services.Interface.Buyer;
 using Technoshop.Services.Buyer;
+using Technoshop.Services.Buyer.Interface;
 
 namespace Technoshop.Web
 {
@@ -99,6 +99,10 @@ namespace Technoshop.Web
                
             });
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
+
             services.AddSingleton<IEmailSender, SendGridEmailSender>();
 
             services.Configure<SendGridOptions>(this.Configuration.GetSection("EmailSettings"));
@@ -136,6 +140,8 @@ namespace Technoshop.Web
                 app.UseHsts();
             }
 
+            app.UseSession();
+
             app.UseRequestLocalization();
 
             app.UseHttpsRedirection();
@@ -165,11 +171,16 @@ namespace Technoshop.Web
             services.AddScoped<IAdminCategoryService, AdminCategoryService>();
             services.AddScoped<IAdminProductService, AdminProductService>();
             services.AddScoped<IAdminHomeService, AdminHomeService>();
+            services.AddScoped<IAdminUserService, AdminUserService>();
 
             services.AddScoped<IModeratorCategoryService, ModeratorCategoryService>();
             services.AddScoped<IModeratorProductsService, ModeratorProductsService>();
+            services.AddScoped<IModeratorHomeService, ModeratorHomeService>();
 
-            services.AddScoped<IBuyerCategoryService, BuierCategoryService>();
+            services.AddScoped<IBuyerCategoryService, BuyerCategoryService>();
+            services.AddScoped<IBuyerProductsService, BuyerProductsService>();
+            services.AddScoped<IBuyerHomeService, BuyerHomeService>();
+            services.AddScoped<IBuyerOrdersService, BuyerOrdersService>();
         }
     }
 }

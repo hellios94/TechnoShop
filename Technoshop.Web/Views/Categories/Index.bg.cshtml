@@ -1,0 +1,11 @@
+﻿@model IEnumerable<CategoryConciseViewModel>
+@{
+    ViewData["Title"] = "Всички категории";
+}
+
+<br />
+<h2 class="text-center">Всички категории</h2>
+<br />
+<table class="table container table-striped table-hover table-dark table-bordered">
+    @Html.DisplayForModel()
+</table>

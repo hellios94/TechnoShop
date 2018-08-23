@@ -28,8 +28,23 @@ using Technoshop.Models;
 
 #line default
 #line hidden
+#line 4 "C:\Моите Проекти\Web Project\Technoshop\Technoshop.Web\Views\_ViewImports.cshtml"
+using Technoshop.Common.Buyer.BindingModels;
+
+#line default
+#line hidden
+#line 5 "C:\Моите Проекти\Web Project\Technoshop\Technoshop.Web\Views\_ViewImports.cshtml"
+using Technoshop.Web.Helpers;
+
+#line default
+#line hidden
+#line 6 "C:\Моите Проекти\Web Project\Technoshop\Technoshop.Web\Views\_ViewImports.cshtml"
+using Technoshop.Common.Buyer.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"583387379a597938339285f5a623245873b0a91c", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"163e770710db17e652521e5eb06571366bb66409", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"32e06e15f6bf7aaf17bdb898f79e4023895fc4d8", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

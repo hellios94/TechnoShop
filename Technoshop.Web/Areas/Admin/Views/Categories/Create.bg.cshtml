@@ -1,0 +1,50 @@
+﻿@model CategoryCreationBindingModel
+
+@{
+    ViewData["Title"] = "Създай Категория";
+}
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<CategoryCreationBindingModel> localizer
+
+<br />
+<h2 class="text-center">Създай Категория</h2>
+<br />
+<form asp-area="Admin" asp-controller="Categories" asp-action="Create" method="post" class="form-horizontal">
+    <div class="form-group row">
+        <label asp-for="Name" class="col-form-label col-sm-2 font-weight-bold">Име</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Slug" class="col-form-label col-sm-2 font-weight-bold">Кратко Име</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="text" asp-for="Slug" class="form-control" />
+            <span asp-validation-for="Slug" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="CategoryPicUrl" class="col-form-label col-sm-2 font-weight-bold">Линк към Снимка</label>
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="url" asp-for="CategoryPicUrl" class="form-control" />
+            <span asp-validation-for="CategoryPicUrl" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="submit" value="Създай" class="btn btn-success fa fa-plus-square" />
+            <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left">Назад</a>
+        </div>
+
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/create-slug.js"></script>
+    <script>
+        $(function () {
+            createSlug("@(Html.IdFor(model => model.Name))", "@(Html.IdFor(model => model.Slug))");
+    });
+    </script>
+}

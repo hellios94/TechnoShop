@@ -1,0 +1,638 @@
+﻿@model ProductCreationBindingModel
+@{
+    ViewData["Title"] = "Добави продукт";
+}
+
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<ProductCreationBindingModel> localizer
+
+@{
+    var category = ViewData["Category"] as string;
+}
+<br />
+<h2 class="text-center">Добави продукт за категория @category</h2>
+<br />
+
+
+@if (Model.CategoryId == 1)
+{
+    <form asp-area="Moderator" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        <div class="form-group row">
+            <label asp-for="ModelName" class="col-form-label col-sm-2 font-weight-bold">Име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="ModelName" class="form-control" />
+                <span asp-validation-for="ModelName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Slug" class="col-form-label col-sm-2 font-weight-bold">Кратко име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Brand" class="col-form-label col-sm-2 font-weight-bold">Име на бранда</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CategoryId" class="col-form-label col-sm-2 font-weight-bold">Категория</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CategoryId" value="@category" readonly class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-form-label col-sm-2 font-weight-bold">Описание</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Display" class="col-form-label col-sm-2 font-weight-bold">Дисплей</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Display" class="form-control" />
+                <span asp-validation-for="Display" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RAM" class="col-form-label col-sm-2 font-weight-bold">Оперативна памет</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="RAM" class="form-control" />
+                <span asp-validation-for="RAM" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Storage" class="col-form-label col-sm-2 font-weight-bold">Вътрешна памет</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Storage" class="form-control" />
+                <span asp-validation-for="Storage" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CPUModel" class="col-form-label col-sm-2 font-weight-bold">Процесор</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CPUModel" class="form-control" />
+                <span asp-validation-for="CPUModel" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="VideoCardModel" class="col-form-label col-sm-2 font-weight-bold">Модел на видео картата</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="VideoCardModel" class="form-control" />
+                <span asp-validation-for="VideoCardModel" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="VideoCardMemory" class="col-form-label col-sm-2 font-weight-bold">Оперативна памет на видео картата</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="VideoCardMemory" class="form-control" />
+                <span asp-validation-for="VideoCardMemory" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Battery" class="col-form-label col-sm-2 font-weight-bold">Батерия</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Battery" class="form-control" />
+                <span asp-validation-for="Battery" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="FrontCamera" class="col-form-label col-sm-2 font-weight-bold">Уеб Камера</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="FrontCamera" class="form-control" />
+                <span asp-validation-for="FrontCamera" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="USB" class="col-form-label col-sm-2 font-weight-bold">USB портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="USB" class="form-control" />
+                <span asp-validation-for="USB" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold">HDMI Портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="radio" asp-for="HDMI" value="true" class="form-check-input" /> Да <br />
+                <input type="radio" asp-for="HDMI" value="false" class="form-check-input" /> Не
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Ports" class="col-form-label col-sm-2 font-weight-bold">Други портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Ports" class="form-control" />
+                <span asp-validation-for="Ports" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="OS" class="col-form-label col-sm-2 font-weight-bold">Операционна система</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="OS" class="form-control" />
+                <span asp-validation-for="OS" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Weight" class="col-form-label col-sm-2 font-weight-bold">Тегло</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="ProductImageUrl" class="col-form-label col-sm-2 font-weight-bold">Линк към снимка на продукта</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="url" asp-for="ProductImageUrl" class="form-control" />
+                <span asp-validation-for="ProductImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold">Цена</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Създай" class="btn btn-success fa fa-plus" />
+                <a asp-area="Moderator" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left"> Отказ</a>
+            </div>
+        </div>
+    </form>
+}
+@if (Model.CategoryId == 2 || Model.CategoryId == 3)
+{
+    <form asp-area="Moderator" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        <div class="form-group row">
+            <label asp-for="ModelName" class="col-form-label col-sm-2 font-weight-bold">Име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="ModelName" class="form-control" />
+                <span asp-validation-for="ModelName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Slug" class="col-form-label col-sm-2 font-weight-bold">Кратко име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Brand" class="col-form-label col-sm-2 font-weight-bold">Име на бранда</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CategoryId" class="col-form-label col-sm-2 font-weight-bold">Категория</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CategoryId" value="@category" readonly class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-form-label col-sm-2 font-weight-bold">Описание</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Display" class="col-form-label col-sm-2 font-weight-bold">Дисплей</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Display" class="form-control" />
+                <span asp-validation-for="Display" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RAM" class="col-form-label col-sm-2 font-weight-bold">Оперативна памет</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="RAM" class="form-control" />
+                <span asp-validation-for="RAM" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Storage" class="col-form-label col-sm-2 font-weight-bold">Вътрешна памет</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Storage" class="form-control" />
+                <span asp-validation-for="Storage" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CPUModel" class="col-form-label col-sm-2 font-weight-bold">Процесор</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CPUModel" class="form-control" />
+                <span asp-validation-for="CPUModel" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Battery" class="col-form-label col-sm-2 font-weight-bold">Батерия</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Battery" class="form-control" />
+                <span asp-validation-for="Battery" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="FrontCamera" class="col-form-label col-sm-2 font-weight-bold">Предна Камера</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="FrontCamera" class="form-control" />
+                <span asp-validation-for="FrontCamera" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="BackCamera" class="col-form-label col-sm-2 font-weight-bold">Задна Камера</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="BackCamera" class="form-control" />
+                <span asp-validation-for="BackCamera" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold">HDMI Портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="radio" asp-for="HDMI" value="true" class="form-check-input" /> Да <br />
+                <input type="radio" asp-for="HDMI" value="false" class="form-check-input" /> Не
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Ports" class="col-form-label col-sm-2 font-weight-bold">Други портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Ports" class="form-control" />
+                <span asp-validation-for="Ports" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="OS" class="col-form-label col-sm-2 font-weight-bold">Операционна система</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="OS" class="form-control" />
+                <span asp-validation-for="OS" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Weight" class="col-form-label col-sm-2 font-weight-bold">Тегло</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="ProductImageUrl" class="col-form-label col-sm-2 font-weight-bold">Линк към снимка на продукта</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="url" asp-for="ProductImageUrl" class="form-control" />
+                <span asp-validation-for="ProductImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold">Цена</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Създай" class="btn btn-success fa fa-plus" />
+                <a asp-area="Moderator" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left"> Отказ</a>
+            </div>
+        </div>
+    </form>
+
+}
+@if (Model.CategoryId == 5)
+{
+    <form asp-area="Moderator" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        <div class="form-group row">
+            <label asp-for="ModelName" class="col-form-label col-sm-2 font-weight-bold">Име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="ModelName" class="form-control" />
+                <span asp-validation-for="ModelName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Slug" class="col-form-label col-sm-2 font-weight-bold">Кратко име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Brand" class="col-form-label col-sm-2 font-weight-bold">Име на бранда</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CategoryId" class="col-form-label col-sm-2 font-weight-bold">Категория</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CategoryId" value="@category" readonly class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-form-label col-sm-2 font-weight-bold">Описание</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RAM" class="col-form-label col-sm-2 font-weight-bold">Оперативна памет</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="RAM" class="form-control" />
+                <span asp-validation-for="RAM" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Storage" class="col-form-label col-sm-2 font-weight-bold">Вътрешна памет</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Storage" class="form-control" />
+                <span asp-validation-for="Storage" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CPUModel" class="col-form-label col-sm-2 font-weight-bold">Процесор</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CPUModel" class="form-control" />
+                <span asp-validation-for="CPUModel" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="VideoCardModel" class="col-form-label col-sm-2 font-weight-bold">Модел на видео картата</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="VideoCardModel" class="form-control" />
+                <span asp-validation-for="VideoCardModel" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="VideoCardMemory" class="col-form-label col-sm-2 font-weight-bold">Оперативна памет на видео картата</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="VideoCardMemory" class="form-control" />
+                <span asp-validation-for="VideoCardMemory" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="USB" class="col-form-label col-sm-2 font-weight-bold">USB портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="USB" class="form-control" />
+                <span asp-validation-for="USB" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold">HDMI Портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="radio" asp-for="HDMI" value="true" class="form-check-input" /> Да <br />
+                <input type="radio" asp-for="HDMI" value="false" class="form-check-input" /> Не
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Ports" class="col-form-label col-sm-2 font-weight-bold">Други портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Ports" class="form-control" />
+                <span asp-validation-for="Ports" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="OS" class="col-form-label col-sm-2 font-weight-bold">Операционна система</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="OS" class="form-control" />
+                <span asp-validation-for="OS" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="ProductImageUrl" class="col-form-label col-sm-2 font-weight-bold">Линк към снимка на продукта</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="url" asp-for="ProductImageUrl" class="form-control" />
+                <span asp-validation-for="ProductImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold">Цена</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Създай" class="btn btn-success fa fa-plus" />
+                <a asp-area="Moderator" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left"> Отказ</a>
+            </div>
+        </div>
+    </form>
+}
+@if (Model.CategoryId == 6 || Model.CategoryId == 7)
+{
+    <form asp-area="Moderator" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+        <div class="form-group row">
+            <label asp-for="ModelName" class="col-form-label col-sm-2 font-weight-bold">Име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="ModelName" class="form-control" />
+                <span asp-validation-for="ModelName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Slug" class="col-form-label col-sm-2 font-weight-bold">Кратко име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Brand" class="col-form-label col-sm-2 font-weight-bold">Име на бранда</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CategoryId" class="col-form-label col-sm-2 font-weight-bold">Категория</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CategoryId" value="@category" readonly class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-form-label col-sm-2 font-weight-bold">Описание</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Display" class="col-form-label col-sm-2 font-weight-bold">Дисплей</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Display" class="form-control" />
+                <span asp-validation-for="Display" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="USB" class="col-form-label col-sm-2 font-weight-bold">USB портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="USB" class="form-control" />
+                <span asp-validation-for="USB" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold">HDMI Портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="radio" asp-for="HDMI" value="true" class="form-check-input" /> Да <br />
+                <input type="radio" asp-for="HDMI" value="false" class="form-check-input" /> Не
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Ports" class="col-form-label col-sm-2 font-weight-bold">Други портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Ports" class="form-control" />
+                <span asp-validation-for="Ports" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="ProductImageUrl" class="col-form-label col-sm-2 font-weight-bold">Линк към снимка на продукта</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="url" asp-for="ProductImageUrl" class="form-control" />
+                <span asp-validation-for="ProductImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold">Цена</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Създай" class="btn btn-success fa fa-plus" />
+                <a asp-area="Moderator" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left"> Отказ</a>
+            </div>
+        </div>
+    </form>
+}
+@if (Model.CategoryId == 8)
+{
+    <form asp-area="Moderator" asp-controller="Products" asp-action="Create" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+        <div class="form-group row">
+            <label asp-for="ModelName" class="col-form-label col-sm-2 font-weight-bold">Име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="ModelName" class="form-control" />
+                <span asp-validation-for="ModelName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Slug" class="col-form-label col-sm-2 font-weight-bold">Кратко име на модела</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Brand" class="col-form-label col-sm-2 font-weight-bold">Име на бранда</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CategoryId" class="col-form-label col-sm-2 font-weight-bold">Категория</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="CategoryId" value="@category" readonly class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-form-label col-sm-2 font-weight-bold">Описание</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <textarea asp-for="Description" rows="4" cols="50" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Display" class="col-form-label col-sm-2 font-weight-bold">Дисплей</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Display" class="form-control" />
+                <span asp-validation-for="Display" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="OS" class="col-form-label col-sm-2 font-weight-bold">Операционна система</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="OS" class="form-control" />
+                <span asp-validation-for="OS" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="USB" class="col-form-label col-sm-2 font-weight-bold">USB портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="USB" class="form-control" />
+                <span asp-validation-for="USB" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="HDMI" class="col-form-label col-sm-2 font-weight-bold">HDMI Портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="radio" asp-for="HDMI" value="true" class="form-check-input" /> Да <br />
+                <input type="radio" asp-for="HDMI" value="false" class="form-check-input" /> Не
+                <span asp-validation-for="HDMI" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Ports" class="col-form-label col-sm-2 font-weight-bold">Други портове</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="text" asp-for="Ports" class="form-control" />
+                <span asp-validation-for="Ports" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="ProductImageUrl" class="col-form-label col-sm-2 font-weight-bold">Линк към снимка на продукта</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="url" asp-for="ProductImageUrl" class="form-control" />
+                <span asp-validation-for="ProductImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Price" class="col-form-label col-sm-2 font-weight-bold">Цена</label>
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10 col-sm-push-2">
+                <input type="submit" value="Създай" class="btn btn-success fa fa-plus" />
+                <a asp-area="Moderator" asp-controller="Categories" asp-action="Index" class="btn btn-warning fa fa-arrow-left"> Отказ</a>
+            </div>
+        </div>
+    </form>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/create-slug.js"></script>
+    <script>
+        $(function () {
+            createSlug("@(Html.IdFor(model => model.ModelName))", "@(Html.IdFor(model => model.Slug))");
+         });
+    </script>
+}

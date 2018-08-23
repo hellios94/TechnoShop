@@ -149,3 +149,4 @@ namespace Technoshop.Web.Areas.Identity.Pages.Account
         }
     }
 }
+

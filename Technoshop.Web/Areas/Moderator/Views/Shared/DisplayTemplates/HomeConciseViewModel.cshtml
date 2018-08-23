@@ -1,0 +1,22 @@
+﻿@model HomeConciseViewModel
+
+<tr class="table-bordered">
+    <th scope="row">
+        <img src="@Model.ProductImageUrl" width="100" height="100" />
+    </th>
+    <td class="text-center align-middle">
+        @Model.ModelName
+    </td>
+    <td class="text-center align-middle">
+        @Model.Description
+    </td>
+    <td class="text-center align-middle">
+        @Model.Price lv.
+    </td>
+    <td class="text-center align-middle">
+        <a asp-area="Moderator" asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id" asp-route-slug="@Model.Slug"
+           class="btn btn-info fa fa-bars"> Details</a> <br /> <br />
+        <a asp-area="Moderator" asp-controller="Products" asp-action="RemoveProduct" asp-route-id="@Model.Id" asp-route-slug="@Model.Slug"
+           class="btn btn-danger fa fa-trash"> Delete</a>
+    </td>
+<tr>

@@ -1,0 +1,21 @@
+﻿@model OrderProductViewModel
+
+<tr class="table-bordered">
+    <th scope="row">
+        <img src="@Model.Product.ProductImageUrl" width="100" height="100" />
+    </th>
+    <td class="text-center align-middle">
+        @Model.Product.ModelName
+    </td>
+    <td class="text-center align-middle">
+        @Model.Product.Description
+    </td>
+    <td class="text-center align-middle">
+        @Model.Product.Price лева
+    </td>
+    <td class="text-center align-middle">
+        <form asp-controller="Orders" asp-action="RemoveProduct" asp-route-id="@Model.Product.Id" method="post">
+            <input type="submit" value="Изтрий" class="btn btn-danger fa fa-trash" />
+        </form>
+    </td>
+<tr>

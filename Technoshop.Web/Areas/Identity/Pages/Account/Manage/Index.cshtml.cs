@@ -31,7 +31,7 @@ namespace Technoshop.Web.Areas.Identity.Pages.Account.Manage
 
         public string Username { get; set; }
 
-        
+
 
         public bool IsEmailConfirmed { get; set; }
 
